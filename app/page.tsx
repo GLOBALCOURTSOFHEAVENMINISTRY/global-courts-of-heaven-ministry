@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white p-10">
-      <section className="text-center py-20">
+    <main className="min-h-screen bg-white">
+      <section className="text-center py-20 px-6">
         <h1 className="text-5xl font-bold mb-6">
           Global Courts of Heaven Ministry
         </h1>
@@ -14,7 +14,7 @@ export default function Home() {
           "For we walk by faith, not by sight." – 2 Corinthians 5:7
         </p>
 
-        <div className="max-w-3xl mx-auto text-left">
+        <div className="max-w-4xl mx-auto text-left">
           <h2 className="text-3xl font-semibold mb-4">
             About the Ministry
           </h2>
