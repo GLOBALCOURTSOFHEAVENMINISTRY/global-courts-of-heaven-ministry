@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  background: #f8fafc;
+  color: #111827;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #d4af37;
+  font-weight: 700;
+}
+
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.hero-section {
+  background: linear-gradient(
+    rgba(0, 20, 80, 0.8),
+    rgba(0, 20, 80, 0.8)
+  );
+  color: white;
+  text-align: center;
+}
+
+.gold-text {
+  color: #d4af37;
+}
+
+.blue-bg {
+  background-color: #0a1f66;
+}
+
+.gold-bg {
+  background-color: #d4af37;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.cta-button {
+  background-color: #d4af37;
+  color: black;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
 }
