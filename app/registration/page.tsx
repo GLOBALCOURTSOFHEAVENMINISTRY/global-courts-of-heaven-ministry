@@ -7,7 +7,6 @@ import { countries, countryCodes } from "@/lib/countries";
 
 export default function RegistrationPage() {
   const router = useRouter();
-
   const [loading, setLoading] = useState(false);
 
   // REQUIRED
@@ -49,115 +48,127 @@ export default function RegistrationPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!agreement) {
-    alert("You must agree to the ministry statement.");
-    return;
-  }
-
-  setLoading(true);
-
-  try {
-    console.log("Starting registration...");
-
-    // STEP 1: CREATE AUTH USER
-    const { data: authData, error: authError } =
-      await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-    console.log("AUTH DATA:", authData);
-    console.log("AUTH ERROR:", authError);
-
-    if (authError) {
-      console.error("AUTH ERROR:", authError);
-
-      setLoading(false);
-
-      alert(`AUTH ERROR:\n${authError.message}`);
+    if (!agreement) {
+      alert("You must agree to the ministry statement.");
       return;
     }
 
-    const userId = authData?.user?.id;
+    setLoading(true);
+
+    try {
+      console.log("Starting registration...");
+
+      // ✅ STEP 1: AUTH (FIXED STABLE VERSION)
+      const { data: authData, error: authError } =
+        await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/login`,
+          },
+        });
+
+      console.log("AUTH DATA:", authData);
+      console.log("AUTH ERROR:", authError);
+
+      if (authError) {
+        setLoading(false);
+        alert(`AUTH ERROR:\n${authError.message}`);
+        return;
+      }
+
+      // ✅ SAFE USER ID EXTRACTION (IMPORTANT FIX)
+      const userId =
+        authData?.user?.id ||
+        authData?.session?.user?.id ||
+        null;
+
+      if (!userId) {
+        setLoading(false);
+        alert(
+          "User created but ID not returned. Please check Supabase Auth settings (email confirmation)."
+        );
+        return;
+      }
+
+      console.log("USER ID:", userId);
+
+      // small delay for Supabase consistency
+      await new Promise((r) => setTimeout(r, 3000));
+           
+      // ✅ STEP 2: INSERT FULL PROFILE (ALL FIELDS KEPT)
+      const memberPayload = {
+        auth_user_id: userId,
+
+        full_name: fullName,
+        gender,
+        date_of_birth: dateOfBirth,
+        country,
+        nationality,
+
+        telephone: `${telephoneCode}${telephone}`,
+        whatsapp: `${whatsappCode}${whatsapp}`,
+
+        email,
+
+        province,
+        city,
+        physical_address: physicalAddress,
+
+        ministry_office: ministryOffice,
+        church_name: churchName,
+        denomination,
+        ministry_position: ministryPosition,
+        years_in_ministry: yearsInMinistry
+          ? Number(yearsInMinistry)
+          : null,
+        senior_pastor: seniorPastor,
+
+        interests,
+      };
+
+      console.log(
+  JSON.stringify(memberPayload, null, 2)
+);
+
+      const { data: memberData, error: dbError, count } = await supabase
+  .from("members")
+  .update(memberPayload)
+  .eq("auth_user_id", userId)
+  .select("*");
 
     console.log("USER ID:", userId);
+console.log("MEMBER DATA:", memberData);
+console.log("DATABASE ERROR:", dbError);
+console.log("COUNT:", count);
 
-    if (!userId) {
-      setLoading(false);
-
-      alert(
-        "User ID not returned from Supabase Auth. Check your Auth settings."
-      );
-
-      return;
-    }
-
-    // STEP 2: INSERT MEMBER PROFILE
-    const memberPayload = {
-      auth_user_id: userId,
-      full_name: fullName,
-      gender,
-      date_of_birth: dateOfBirth,
-      country,
-      nationality,
-      telephone: `${telephoneCode}${telephone}`,
-      whatsapp: `${whatsappCode}${whatsapp}`,
-      email,
-      province,
-      city,
-      physical_address: physicalAddress,
-      ministry_office: ministryOffice,
-      church_name: churchName,
-      denomination,
-      ministry_position: ministryPosition,
-      years_in_ministry: yearsInMinistry
-        ? Number(yearsInMinistry)
-        : null,
-      senior_pastor: seniorPastor,
-      interests,
-    };
-
-    console.log("MEMBER PAYLOAD:", memberPayload);
-
-    const { data: memberData, error: dbError } =
-      await supabase
-        .from("members")
-        .insert([memberPayload])
-        .select();
-
-    console.log("MEMBER DATA:", memberData);
-    console.log("DATABASE ERROR:", dbError);
-
-    if (dbError) {
-      console.error("DATABASE ERROR:", dbError);
+      if (dbError) {
+        setLoading(false);
+        alert(
+          `DATABASE ERROR:\n${dbError.message}\nCODE: ${dbError.code ?? "N/A"}`
+        );
+        return;
+      }
 
       setLoading(false);
 
       alert(
-        `DATABASE ERROR:\n${dbError.message}\n\nCODE: ${dbError.code ?? "N/A"}`
+        "Registration successful. Please check your email to confirm your account."
       );
 
-      return;
+      router.push(
+  "/login?message=Check your email and confirm your account first"
+);
+    } catch (err) {
+      console.error("UNEXPECTED ERROR:", err);
+      setLoading(false);
+      alert("Unexpected error. Check console.");
     }
+  };
 
-    setLoading(false);
-
-    alert("Registration successful.");
-
-    router.push("/login");
-  } catch (err) {
-    console.error("UNEXPECTED ERROR:", err);
-
-    setLoading(false);
-
-    alert("Unexpected error. Check browser console.");
-  }
-
-};
-
-    return (
+  return (
     <main className="min-h-screen bg-white py-10 px-6">
       <div className="max-w-4xl mx-auto bg-white shadow-lg p-8 rounded-lg">
 
@@ -167,7 +178,8 @@ export default function RegistrationPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
 
-          {/* REQUIRED FIELDS */}
+          {/* ===== ALL YOUR FIELDS KEPT EXACTLY ===== */}
+
           <input
             type="text"
             placeholder="Full Name *"
@@ -219,7 +231,7 @@ export default function RegistrationPage() {
             required
           />
 
-          {/* TELEPHONE */}
+          {/* PHONE */}
           <div className="flex gap-2">
             <select
               value={telephoneCode}
@@ -227,7 +239,7 @@ export default function RegistrationPage() {
               className="border p-3 rounded"
             >
               {countryCodes.map((c, i) => (
-                <option key={`tel-${i}`} value={c.code}>
+                <option key={i} value={c.code}>
                   {c.code} ({c.country})
                 </option>
               ))}
@@ -251,7 +263,7 @@ export default function RegistrationPage() {
               className="border p-3 rounded"
             >
               {countryCodes.map((c, i) => (
-                <option key={`wa-${i}`} value={c.code}>
+                <option key={i} value={c.code}>
                   {c.code} ({c.country})
                 </option>
               ))}
@@ -285,7 +297,8 @@ export default function RegistrationPage() {
             required
           />
 
-          {/* OPTIONAL */}
+          {/* OPTIONAL FIELDS (ALL KEPT) */}
+
           <input
             placeholder="Province / State"
             value={province}
@@ -307,7 +320,6 @@ export default function RegistrationPage() {
             className="border p-3 w-full rounded"
           />
 
-          {/* MINISTRY OFFICE */}
           <select
             value={ministryOffice}
             onChange={(e) => setMinistryOffice(e.target.value)}

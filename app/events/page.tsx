@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Events() {
   return (
     <main className="min-h-screen">
@@ -233,83 +234,183 @@ export default function Events() {
       </section>
 
       {/* GLOBAL VISION */}
-      <section className="bg-[#0B1B3B] text-white py-20 px-6">
+<section className="bg-[#0B1B3B] text-white py-20 px-6">
 
-        <div className="max-w-6xl mx-auto text-center">
+  <div className="max-w-6xl mx-auto text-center">
 
-          <h2 className="text-5xl font-bold text-yellow-400 mb-12">
-            The Nations Are Calling
-          </h2>
+    <h2 className="text-5xl font-bold text-yellow-400 mb-12">
+      The Nations Are Calling
+    </h2>
 
-          <p className="text-xl max-w-4xl mx-auto mb-12">
-            The Lord Jesus Christ is extending this mandate beyond South
-            Africa and into the nations of the earth.
-          </p>
+    <p className="text-xl max-w-4xl mx-auto mb-12">
+      The Lord Jesus Christ is extending this mandate beyond South Africa and
+      into the nations of the earth.
+    </p>
 
-          <div className="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto text-lg">
+    <div className="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto">
 
-            <div className="bg-white text-[#0B1B3B] rounded-xl p-8">
-              <ul className="space-y-3">
-                <li>Africa</li>
-                <li>Antarctica</li>
-                <li>Asia</li>
-                <li>Europe</li>
-              </ul>
-            </div>
+      <div className="bg-white text-[#0B1B3B] rounded-xl p-8">
+        <div className="space-y-4">
 
-            <div className="bg-white text-[#0B1B3B] rounded-xl p-8">
-              <ul className="space-y-3">
-                <li>North America</li>
-                <li>South America</li>
-                <li>Australia</li>
-                <li>Zealandia</li>
-              </ul>
-            </div>
+          <Link href="/continents/africa" className="block hover:text-yellow-600 font-semibold">
+            Africa
+          </Link>
 
-          </div>
+          <Link href="/continents/antarctica" className="block hover:text-yellow-600 font-semibold">
+            Antarctica
+          </Link>
+
+          <Link href="/continents/asia" className="block hover:text-yellow-600 font-semibold">
+            Asia
+          </Link>
+
+          <Link href="/continents/europe" className="block hover:text-yellow-600 font-semibold">
+            Europe
+          </Link>
 
         </div>
+      </div>
 
-      </section>
+      <div className="bg-white text-[#0B1B3B] rounded-xl p-8">
+        <div className="space-y-4">
+
+          <Link href="/continents/north-america" className="block hover:text-yellow-600 font-semibold">
+            North America
+          </Link>
+
+          <Link href="/continents/south-america" className="block hover:text-yellow-600 font-semibold">
+            South America
+          </Link>
+
+          <Link href="/continents/australia" className="block hover:text-yellow-600 font-semibold">
+            Australia
+          </Link>
+
+          <Link href="/continents/zealandia" className="block hover:text-yellow-600 font-semibold">
+            Zealandia
+          </Link>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* COMING SOON */}
-      <section className="bg-gray-100 py-20 px-6">
+<section className="bg-gray-100 py-20 px-6">
 
-        <div className="max-w-7xl mx-auto">
+  <div className="max-w-7xl mx-auto">
 
-          <h2 className="text-5xl font-bold text-center text-[#0B1B3B] mb-14">
-            Global Gatherings Coming Soon
-          </h2>
+    <h2 className="text-5xl font-bold text-center text-[#0B1B3B] mb-14">
+      Global Gatherings Coming Soon
+    </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid md:grid-cols-3 gap-8">
 
-            {[
-              "Africa Gathering",
-              "Europe Gathering",
-              "Asia Gathering",
-              "North America Gathering",
-              "South America Gathering",
-              "Australia & Zealandia Gathering",
-            ].map((event) => (
-              <div
-                key={event}
-                className="bg-white p-8 rounded-xl shadow-lg text-center"
-              >
-                <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
-                  {event}
-                </h3>
+      <Link
+        href="/events/africa"
+        className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+      >
+        <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+          Africa Gathering
+        </h3>
+        <p className="text-yellow-500 font-bold">
+          Coming Soon
+        </p>
+      </Link>
 
-                <p className="text-yellow-500 font-bold">
-                  Coming Soon
-                </p>
-              </div>
-            ))}
+<Link
+    href="/events/antarctica"
+    className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+  >
+    <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+      Antarctica Gathering
+    </h3>
+    <p className="text-yellow-500 font-bold">
+      Coming Soon
+    </p>
+  </Link>
 
-          </div>
+      <Link
+        href="/events/europe"
+        className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+      >
+        <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+          Europe Gathering
+        </h3>
+        <p className="text-yellow-500 font-bold">
+          Coming Soon
+        </p>
+      </Link>
 
-        </div>
+      <Link
+        href="/events/asia"
+        className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+      >
+        <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+          Asia Gathering
+        </h3>
+        <p className="text-yellow-500 font-bold">
+          Coming Soon
+        </p>
+      </Link>
 
-      </section>
+      <Link
+        href="/events/north-america"
+        className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+      >
+        <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+          North America Gathering
+        </h3>
+        <p className="text-yellow-500 font-bold">
+          Coming Soon
+        </p>
+      </Link>
+
+      <Link
+        href="/events/south-america"
+        className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+      >
+        <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+          South America Gathering
+        </h3>
+        <p className="text-yellow-500 font-bold">
+          Coming Soon
+        </p>
+      </Link>
+
+       <Link
+    href="/events/australia"
+    className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+  >
+    <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+      Australia Gathering
+    </h3>
+    <p className="text-yellow-500 font-bold">
+      Coming Soon
+    </p>
+  </Link>
+
+  <Link
+    href="/events/zealandia"
+    className="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition"
+  >
+    <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+      Zealandia Gathering
+    </h3>
+    <p className="text-yellow-500 font-bold">
+      Coming Soon
+    </p>
+  </Link>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* SCRIPTURE */}
       <section className="bg-white py-20 px-6">

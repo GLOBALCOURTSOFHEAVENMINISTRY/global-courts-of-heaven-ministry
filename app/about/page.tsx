@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
   return (
     <main className="min-h-screen">
@@ -11,11 +13,14 @@ export default function About() {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
 
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-5xl md:text-6xl font-bold text-yellow-400">
-            About Us
+          <h1 className="text-red text-4xl font-bold">
+            About
+          </h1>
+          <h1 className="text-red text-4xl font-bold">
+            Global Courts of Heaven Ministry
           </h1>
         </div>
 
@@ -37,7 +42,7 @@ export default function About() {
       </section>
 
       {/* FOUNDERS TITLE */}
-      <section className="bg-white pt-10 pb-4 text-center">
+      <section className="bg-gray pt-10 pb-4 text-center">
         <h2 className="text-4xl font-bold text-yellow-500 tracking-wide">
           FOUNDERS
         </h2>
@@ -170,7 +175,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* GLOBAL VISION (CONTINENTS ONLY) */}
+      {/* GLOBAL VISION (CONTINENTS CLICKABLE) */}
       <section className="bg-gray-100 py-16 px-6 text-center">
         <div className="max-w-5xl mx-auto">
 
@@ -178,40 +183,42 @@ export default function About() {
             Our Global Vision
           </h2>
 
-<div className="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto">
 
-  <div>
-    <h3 className="text-2xl font-bold text-yellow-500 mb-6">
-      Continents & Regions
-    </h3>
+            {/* LEFT COLUMN */}
+            <div>
+              <h3 className="text-2xl font-bold text-yellow-500 mb-6">
+                Continents & Regions
+              </h3>
 
-    <ul className="space-y-3 text-lg text-[#0B1B3B]">
-      <li>Africa</li>
-      <li>Antarctica</li>
-      <li>Asia</li>
-      <li>Europe</li>
-    </ul>
-  </div>
+              <ul className="space-y-3 text-lg text-[#0B1B3B]">
+                <li><Link href="/continents/africa" className="hover:text-yellow-500">Africa</Link></li>
+                <li><Link href="/continents/antarctica" className="hover:text-yellow-500">Antarctica</Link></li>
+                <li><Link href="/continents/asia" className="hover:text-yellow-500">Asia</Link></li>
+                <li><Link href="/continents/europe" className="hover:text-yellow-500">Europe</Link></li>
+              </ul>
+            </div>
 
-  <div>
-    <h3 className="text-2xl font-bold text-yellow-500 mb-6">
-      Continents & Regions
-    </h3>
+            {/* RIGHT COLUMN */}
+            <div>
+              <h3 className="text-2xl font-bold text-yellow-500 mb-6">
+                Continents & Regions
+              </h3>
 
-    <ul className="space-y-3 text-lg text-[#0B1B3B]">
-      <li>North America</li>
-      <li>South America</li>
-      <li>Australia</li>
-      <li>Zealandia</li>
-    </ul>
-  </div>
+              <ul className="space-y-3 text-lg text-[#0B1B3B]">
+                <li><Link href="/continents/north-america" className="hover:text-yellow-500">North America</Link></li>
+                <li><Link href="/continents/south-america" className="hover:text-yellow-500">South America</Link></li>
+                <li><Link href="/continents/australia" className="hover:text-yellow-500">Australia</Link></li>
+                <li><Link href="/continents/zealandia" className="hover:text-yellow-500">Zealandia</Link></li>
+              </ul>
+            </div>
 
-</div>
+          </div>
 
         </div>
       </section>
 
-      {/* CALL SECTION (UNCHANGED) */}
+      {/* CALL SECTION */}
       <section className="bg-white py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 

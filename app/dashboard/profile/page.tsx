@@ -147,6 +147,13 @@ export default function ProfilePage() {
           denomination: member.denomination,
           ministry_position: member.ministry_position,
           senior_pastor: member.senior_pastor,
+
+            gender: member.gender,
+  date_of_birth: member.date_of_birth,
+  nationality: member.nationality,
+  whatsapp: member.whatsapp,
+  years_in_ministry: member.years_in_ministry,
+  interests: member.interests,
         })
         .eq("auth_user_id", user.id);
 
@@ -397,6 +404,183 @@ export default function ProfilePage() {
               className="w-full border p-3 rounded"
             />
           </div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    Gender
+  </label>
+
+  <input
+    type="text"
+    value={member.gender || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        gender: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    Date Of Birth
+  </label>
+
+  <input
+    type="date"
+    value={member.date_of_birth || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        date_of_birth: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    Nationality
+  </label>
+
+  <input
+    type="text"
+    value={member.nationality || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        nationality: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    WhatsApp
+  </label>
+
+  <input
+    type="text"
+    value={member.whatsapp || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        whatsapp: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    Denomination
+  </label>
+
+  <input
+    type="text"
+    value={member.denomination || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        denomination: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    Ministry Position
+  </label>
+
+  <input
+    type="text"
+    value={member.ministry_position || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        ministry_position: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    Years In Ministry
+  </label>
+
+  <input
+    type="number"
+    value={member.years_in_ministry || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        years_in_ministry: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div>
+  <label className="block font-semibold mb-2">
+    Senior Pastor
+  </label>
+
+  <input
+    type="text"
+    value={member.senior_pastor || ""}
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        senior_pastor: e.target.value,
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
+
+<div className="md:col-span-2">
+  <label className="block font-semibold mb-2">
+    Areas Of Interest
+  </label>
+
+  <input
+    type="text"
+    value={
+      Array.isArray(member.interests)
+        ? member.interests.join(", ")
+        : ""
+    }
+    disabled={!editing}
+    onChange={(e) =>
+      setMember({
+        ...member,
+        interests: e.target.value
+          .split(",")
+          .map((i) => i.trim()),
+      })
+    }
+    className="w-full border p-3 rounded"
+  />
+</div>
 
         </div>
 

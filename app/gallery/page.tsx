@@ -1,1 +1,357 @@
-export default function Gallery() { const highlights = [ { title: "Worship & Revival", image: "/gallery/worship-revival.png", description: "Capturing moments of worship, praise, spiritual awakening, and encounters with the presence of God.", }, { title: "Prayer Gatherings", image: "/gallery/prayer-gatherings.png", description: "Believers standing together in prayer, intercession, repentance, and spiritual alignment before the throne of grace.", }, { title: "Courts of Heaven Teachings", image: "/gallery/courts-teachings.png", description: "Teaching and equipping believers in biblical principles, spiritual understanding, and righteous petitions before Heaven.", }, { title: "National Assemblies", image: "/gallery/national-assemblies.png", description: "Gatherings bringing together believers and leaders from different provinces, regions, and nations.", }, { title: "Founders & Leadership", image: "/gallery/founders-leadership.png", description: "Moments featuring ministry leadership, apostolic guidance, prophetic ministry, and servant leadership.", }, { title: "Fivefold Ministry", image: "/gallery/fivefold-ministry.png", description: "Apostles, prophets, evangelists, pastors, and teachers serving together for the equipping of the saints.", }, { title: "Kingdom Unity", image: "/gallery/kingdom-unity.png", description: "Believers united across denominations, cultures, tribes, and languages under Jesus Christ.", }, ]; return ( <main className="min-h-screen"> {/* HERO */} <section className="relative h-[70vh] flex items-center justify-center text-center text-white"> <img src="/banner/gallery-banner.png" alt="Gallery" className="absolute inset-0 w-full h-full object-cover" /> <div className="absolute inset-0 bg-black/40"></div> <div className="relative z-10 px-6 max-w-5xl"> <h1 className="text-5xl md:text-7xl font-bold text-yellow-400 mb-6"> Gallery </h1> <p className="text-xl md:text-2xl mb-8"> Witnessing the Work of His Hands </p> <p className="max-w-3xl mx-auto text-lg"> Capturing moments of worship, prayer, apostolic gatherings, teaching, evangelism, leadership, and kingdom unity across the nations. </p> <div className="mt-10 flex flex-col md:flex-row justify-center gap-4"> <a href="#highlights" className="bg-yellow-500 text-black px-8 py-3 rounded-md font-bold" > View Gallery </a> <a href="/registration" className="bg-white text-black px-8 py-3 rounded-md font-bold" > Join The Movement </a> </div> </div> </section> {/* INTRODUCTION */} <section className="bg-white py-20 px-6"> <div className="max-w-5xl mx-auto text-center"> <h2 className="text-4xl font-bold text-[#0B1B3B] mb-8"> Through These Moments </h2> <p className="text-lg leading-8 mb-6"> Every photograph tells a story of God's faithfulness, restoration, prayer, repentance, unity, and transformation. </p> <p className="text-lg leading-8"> Through Global Courts of Heaven Ministry, believers from different backgrounds, cultures, tribes, and nations gather together under the Lordship of Jesus Christ to seek His presence and advance His Kingdom. </p> </div> </section> {/* MINISTRY HIGHLIGHTS */} <section id="highlights" className="bg-[#EAF2FF] py-20 px-6" > <div className="max-w-7xl mx-auto"> <h2 className="text-5xl font-bold text-center text-yellow-500 mb-14"> Ministry Highlights </h2> <div className="grid md:grid-cols-3 gap-8"> {highlights.map((item) => ( <div key={item.title} className="bg-white rounded-xl shadow-lg overflow-hidden" > <img src={item.image} alt={item.title} className="h-56 w-full object-cover" /> <div className="p-6"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4"> {item.title} </h3> <p className="leading-7"> {item.description} </p> </div> </div> ))} </div> </div> </section> {/* STORIES */} <section className="bg-white py-20 px-6"> <div className="max-w-7xl mx-auto"> <h2 className="text-5xl font-bold text-center text-[#0B1B3B] mb-14"> Stories From The Field </h2> <div className="grid md:grid-cols-3 gap-8"> <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg"> <img src="/gallery/story-worship.png" alt="Worship" className="h-64 w-full object-cover" /> <div className="p-6"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-3"> Worship & Revival </h3> <p> Moments of prayer, worship, and spiritual renewal. </p> </div> </div> <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg"> <img src="/gallery/story-prayer.png" alt="Prayer" className="h-64 w-full object-cover" /> <div className="p-6"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-3"> Prayer Gatherings </h3> <p> Believers standing together before God in unity and intercession. </p> </div> </div> <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg"> <img src="/gallery/story-assembly.png" alt="Assembly" className="h-64 w-full object-cover" /> <div className="p-6"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-3"> Apostolic Assemblies </h3> <p> National and regional gatherings advancing the mandate of unity. </p> </div> </div> </div> </div> </section> {/* MISSION */} <section className="bg-[#0B1B3B] text-white py-20 px-6"> <div className="max-w-5xl mx-auto text-center"> <h2 className="text-5xl font-bold text-yellow-400 mb-10"> The Gospel In Action </h2> <p className="text-lg leading-8 mb-10"> The mission of Global Courts of Heaven Ministry extends beyond buildings and events. Every gathering, prayer meeting, teaching session, outreach, and leadership assembly reflects our commitment to: </p> <div className="grid md:grid-cols-4 gap-6 text-xl font-semibold"> <div>Unity</div> <div>Repentance</div> <div>Holiness</div> <div>Prayer</div> <div>Reconciliation</div> <div>Righteousness</div> <div>Intercession</div> <div>Kingdom Advancement</div> </div> </div> </section> {/* SOCIAL PLATFORMS */} <section className="bg-gray-100 py-20 px-6"> <div className="max-w-7xl mx-auto"> <h2 className="text-5xl font-bold text-center text-[#0B1B3B] mb-14"> Watch On Our Official Platforms </h2> <div className="grid md:grid-cols-4 gap-8"> <div className="bg-white p-8 rounded-xl shadow text-center"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4"> Facebook </h3> <p>Daily ministry updates and announcements.</p> </div> <div className="bg-white p-8 rounded-xl shadow text-center"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4"> YouTube </h3> <p>Sermons, teachings, conferences, and broadcasts.</p> </div> <div className="bg-white p-8 rounded-xl shadow text-center"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4"> Instagram </h3> <p>Photos, reels, and ministry moments.</p> </div> <div className="bg-white p-8 rounded-xl shadow text-center"> <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4"> TikTok </h3> <p>Short teachings and revival clips.</p> </div> </div> </div> </section> {/* SCRIPTURE */} <section className="bg-white py-20 px-6"> <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"> <div> <img src="/images/gallery-scripture.png" alt="Gallery Scripture" className="rounded-xl shadow-xl" /> </div> <div> <h2 className="text-4xl font-bold text-[#0B1B3B] mb-8"> Featured Scripture </h2> <blockquote className="text-xl italic leading-10"> "Declare his glory among the heathen; his marvellous works among all nations." </blockquote> <p className="mt-6 font-bold text-yellow-600"> Psalm 96:3 (KJV) </p> </div> </div> </section> {/* CTA */} <section className="bg-white py-20 px-6 text-center"> <h2 className="text-5xl font-bold text-[#0B1B3B] mb-6"> Join The Journey </h2> <p className="text-xl max-w-4xl mx-auto mb-10"> Become part of a growing movement of believers united before the Throne of Grace. </p> <div className="flex flex-col md:flex-row justify-center gap-4"> <a href="/registration" className="bg-yellow-500 text-black px-8 py-3 rounded-md font-bold" > Register Now </a> <a href="/events" className="bg-[#0B1B3B] text-white px-8 py-3 rounded-md font-bold" > Upcoming Events </a> <a href="/contact" className="bg-black text-white px-8 py-3 rounded-md font-bold" > Contact Us </a> </div> </section> </main> ); }
+export default function Gallery() {
+  const highlights = [
+    {
+      title: "Worship & Revival",
+      image: "/gallery/worship-revival.png",
+      description:
+        "Capturing moments of worship, praise, spiritual awakening, and encounters with the presence of God.",
+    },
+    {
+      title: "Prayer Gatherings",
+      image: "/gallery/prayer-gatherings.png",
+      description:
+        "Believers standing together in prayer, intercession, repentance, and spiritual alignment before the throne of grace.",
+    },
+    {
+      title: "Courts of Heaven Teachings",
+      image: "/gallery/courts-teachings.png",
+      description:
+        "Teaching and equipping believers in biblical principles, spiritual understanding, and righteous petitions before Heaven.",
+    },
+    {
+      title: "National Assemblies",
+      image: "/gallery/national-assemblies.png",
+      description:
+        "Gatherings bringing together believers and leaders from different provinces, regions, and nations.",
+    },
+    {
+      title: "Founders & Leadership",
+      image: "/gallery/founders-leadership.png",
+      description:
+        "Moments featuring ministry leadership, apostolic guidance, prophetic ministry, and servant leadership.",
+    },
+    {
+      title: "Fivefold Ministry",
+      image: "/gallery/fivefold-ministry.png",
+      description:
+        "Apostles, prophets, evangelists, pastors, and teachers serving together for the equipping of the saints.",
+    },
+    {
+      title: "Kingdom Unity",
+      image: "/gallery/kingdom-unity.png",
+      description:
+        "Believers united across denominations, cultures, tribes, and languages under Jesus Christ.",
+    },
+  ];
+
+  return (
+    <main className="min-h-screen">
+
+      {/* HERO */}
+      <section className="relative h-[70vh] flex items-center justify-center text-center text-white">
+
+        <img
+          src="/banner/gallery-banner.png"
+          alt="Gallery"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        <div className="relative z-10 px-6 max-w-5xl">
+          <h1 className="text-5xl md:text-7xl font-bold text-yellow-400 mb-6">
+            Gallery
+          </h1>
+
+          <p className="text-xl md:text-2xl mb-8">
+            Witnessing the Work of His Hands
+          </p>
+
+          <p className="max-w-3xl mx-auto text-lg">
+            Capturing moments of worship, prayer, apostolic gatherings, teaching,
+            evangelism, leadership, and kingdom unity across the nations.
+          </p>
+
+          <div className="mt-10 flex flex-col md:flex-row justify-center gap-4">
+            <a
+              href="#highlights"
+              className="bg-yellow-500 text-black px-8 py-3 rounded-md font-bold"
+            >
+              View Gallery
+            </a>
+
+            <a
+              href="/registration"
+              className="bg-white text-black px-8 py-3 rounded-md font-bold"
+            >
+              Join The Movement
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* INTRODUCTION */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-[#0B1B3B] mb-8">
+            Through These Moments
+          </h2>
+
+          <p className="text-lg leading-8 mb-6">
+            Every photograph tells a story of God's faithfulness, restoration,
+            prayer, repentance, unity, and transformation.
+          </p>
+
+          <p className="text-lg leading-8">
+            Through Global Courts of Heaven Ministry, believers from different
+            backgrounds, cultures, tribes, and nations gather together under the
+            Lordship of Jesus Christ.
+          </p>
+        </div>
+      </section>
+
+      {/* MINISTRY HIGHLIGHTS */}
+      <section id="highlights" className="bg-[#EAF2FF] py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-5xl font-bold text-center text-yellow-500 mb-14">
+            Ministry Highlights
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {highlights.map((item) => (
+              <div
+                key={item.title}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-56 w-full object-cover"
+                />
+
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+                    {item.title}
+                  </h3>
+
+                  <p className="leading-7">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* STORIES */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-5xl font-bold text-center text-[#0B1B3B] mb-14">
+            Stories From The Field
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+              <img
+                src="/gallery/story-worship.png"
+                alt="Worship"
+                className="h-64 w-full object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-[#0B1B3B] mb-3">
+                  Worship & Revival
+                </h3>
+                <p>Moments of prayer, worship, and spiritual renewal.</p>
+              </div>
+            </div>
+
+            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+              <img
+                src="/gallery/story-prayer.png"
+                alt="Prayer"
+                className="h-64 w-full object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-[#0B1B3B] mb-3">
+                  Prayer Gatherings
+                </h3>
+                <p>Believers standing together before God in unity.</p>
+              </div>
+            </div>
+
+            <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+              <img
+                src="/gallery/story-assembly.png"
+                alt="Assembly"
+                className="h-64 w-full object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-[#0B1B3B] mb-3">
+                  Apostolic Assemblies
+                </h3>
+                <p>National and regional gatherings advancing the mandate.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* MISSION */}
+      <section className="bg-[#0B1B3B] text-white py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+
+          <h2 className="text-5xl font-bold text-yellow-400 mb-10">
+            The Gospel In Action
+          </h2>
+
+          <p className="text-lg leading-8 mb-10">
+            The mission extends beyond buildings and events. Every gathering
+            reflects unity, repentance, holiness, prayer, and kingdom advancement.
+          </p>
+
+          <div className="grid md:grid-cols-4 gap-6 text-xl font-semibold">
+            <div>Unity</div>
+            <div>Repentance</div>
+            <div>Holiness</div>
+            <div>Prayer</div>
+            <div>Reconciliation</div>
+            <div>Righteousness</div>
+            <div>Intercession</div>
+            <div>Kingdom Advancement</div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SOCIAL PLATFORMS (CLICKABLE FIXED) */}
+      <section className="bg-gray-100 py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-5xl font-bold text-center text-[#0B1B3B] mb-14">
+            Watch On Our Official Platforms
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-8">
+
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              className="bg-white p-8 rounded-xl shadow text-center hover:shadow-xl transition block"
+            >
+              <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+                Facebook
+              </h3>
+              <p>Daily ministry updates and announcements.</p>
+            </a>
+
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              className="bg-white p-8 rounded-xl shadow text-center hover:shadow-xl transition block"
+            >
+              <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+                YouTube
+              </h3>
+              <p>Sermons, teachings, conferences, and broadcasts.</p>
+            </a>
+
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              className="bg-white p-8 rounded-xl shadow text-center hover:shadow-xl transition block"
+            >
+              <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+                Instagram
+              </h3>
+              <p>Photos, reels, and ministry moments.</p>
+            </a>
+
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              className="bg-white p-8 rounded-xl shadow text-center hover:shadow-xl transition block"
+            >
+              <h3 className="text-2xl font-bold text-[#0B1B3B] mb-4">
+                TikTok
+              </h3>
+              <p>Short teachings and revival clips.</p>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* SCRIPTURE */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+          <div>
+            <img
+              src="/images/gallery-scripture.png"
+              alt="Gallery Scripture"
+              className="rounded-xl shadow-xl"
+            />
+          </div>
+
+          <div>
+            <h2 className="text-4xl font-bold text-[#0B1B3B] mb-8">
+              Featured Scripture
+            </h2>
+
+            <blockquote className="text-xl italic leading-10">
+              "Declare his glory among the heathen; his marvellous works among all nations."
+            </blockquote>
+
+            <p className="mt-6 font-bold text-yellow-600">
+              Psalm 96:3 (KJV)
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white py-20 px-6 text-center">
+
+        <h2 className="text-5xl font-bold text-[#0B1B3B] mb-6">
+          Join The Journey
+        </h2>
+
+        <p className="text-xl max-w-4xl mx-auto mb-10">
+          Become part of a growing movement of believers united before the Throne of Grace.
+        </p>
+
+        <div className="flex flex-col md:flex-row justify-center gap-4">
+          <a
+            href="/registration"
+            className="bg-yellow-500 text-black px-8 py-3 rounded-md font-bold"
+          >
+            Register Now
+          </a>
+
+          <a
+            href="/events"
+            className="bg-[#0B1B3B] text-white px-8 py-3 rounded-md font-bold"
+          >
+            Upcoming Events
+          </a>
+
+          <a
+            href="/contact"
+            className="bg-black text-white px-8 py-3 rounded-md font-bold"
+          >
+            Contact Us
+          </a>
+        </div>
+
+      </section>
+
+    </main>
+  );
+}
